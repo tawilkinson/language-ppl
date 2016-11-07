@@ -2,8 +2,8 @@
 'fileTypes': [
   'ppl'
 ]
-'firstLineMatch': '(?i)-\\*-[^*]*(Mode:\\s*)?C(\\s*;.*?)?\\s*-\\*-'
-'name': 'C'
+'firstLineMatch': '(?i)-\\*-[^*]*(Mode:\\s*)?PPL(\\s*;.*?)?\\s*-\\*-'
+'name': 'PPL'
 'patterns': [
   {
     'include': '#preprocessor-rule-enabled'
