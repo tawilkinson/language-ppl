@@ -22,17 +22,19 @@
     'name': 'keyword.control.ppl'
   }
   {
+    'match': '\\b(CHANNEL_S|CHANNEL_R|CHANNEL_P|CHANNEL_PS|ALL_CHANNELS|NOLOOP|STARTLOOP|COUNTLOOP|JUMPBACK|max_waits|LIMIT_VIEW|LIMIT_VIEW2|LIMIT_ECHO|
+    LIMIT_EXPT|LIMIT_BATCHEX|LIMIT_VIEWAV|LIMIT_SLICEAV|LIMIT_AVERAGE|LIMIT_TRIGGER|LIMIT_NO_TRIGGER|LIMIT_PENDING|LIMIT_OK|LIMIT_ERR_DIM|LIMIT_ERR_RECV|
+    REWIND_SEG|REWIND_SLICE|REWIND_VIEW2|REWIND_VIEW1|REWIND_BATCHEX|REWIND_BATCHSL|REWIND_EXPT|AUTOREW_OFF|AUTOREW_ON|REWIND_COMPLETED|REWIND_PENDING|
+    REWIND_ACTIONED|REWIND_ERR_DIM|REWIND_ERR_AV|REWIND_ERR_PAST|REWIND_ERR_MULT|REWIND_ERR_BATCH|S_ANGLE|P_ANGLE|R_ANGLE|DBDTMODE|GRAD_MAX|POS_INDEX)\\b'
+    'name': 'keyword.mr.ppl'
+  }
+  {
     'match': '\\b(asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\b'
     'name': 'storage.type.ppl'
   }
   {
     'match': '\\b(const|extern|register|restrict|static|volatile|inline)\\b'
     'name': 'storage.modifier.ppl'
-  }
-  {
-    # Common naming idiom for PPL constants: "kConstantVariable"
-    'match': '\\bk[A-Z]\\w*\\b'
-    'name': 'constant.other.variable.mac-classic.ppl'
   }
   {
     'match': '\\bg[A-Z]\\w*\\b'
