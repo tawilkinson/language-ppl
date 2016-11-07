@@ -415,13 +415,6 @@
         'name': 'comment.line.banner.ppl'
       }
       {
-        'captures':
-          '1':
-            'name': 'meta.toc-list.banner.line.ppl'
-        'match': '^\\\\ =(\\s*.*?)\\s*=\\s*$\\n?'
-        'name': 'comment.line.banner2.ppl'
-      }
-      {
         'begin': '(^[ \\t]+)?(?=//)'
         'beginCaptures':
           '1':
@@ -435,6 +428,28 @@
                 'name': 'punctuation.definition.comment.ppl'
             'end': '\\n'
             'name': 'comment.line.double-slash.ppl'
+            'patterns': [
+              {
+                'include': '#line_continuation_character'
+              }
+            ]
+          }
+        ]
+      }
+      {
+        'begin': '(^[ \\t]+)?(?=\\\\)'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.whitespace.comment.leading.ppl'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '\\\\'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.comment.ppl'
+            'end': '\\n'
+            'name': 'comment.line.double-slash-ppl.ppl'
             'patterns': [
               {
                 'include': '#line_continuation_character'
