@@ -1,4 +1,4 @@
-'.source.c, .source.cpp, .source.objc, .source.objcpp':
+'.source.ppl':
   '#ifndef … #define … #endif':
     'prefix': 'def'
     'body': '#ifndef ${1:SYMBOL}\n#define $1 ${2:value}\n#endif'
@@ -74,40 +74,3 @@
   'read file':
     'prefix': 'rf'
     'body': 'FILE *${1:fp};\n${1:fp} = fopen ("${2:filename.txt}","r");\nif (${1:fp}!=NULL)\n{\n\tfscanf(${1:fp},"${3:Some String\\\\n}", ${3:&var});\n\tfclose (${1:fp});\n}'
-'.source.cpp, .source.objcpp':
-  'Enumeration':
-    'prefix': 'enum'
-    'body': 'enum ${1:name} { $0 };'
-  'Class':
-    'prefix': 'cl'
-    'body': 'class ${1:name_t} {\nprivate:\n\t${0:/* data */}\n\npublic:\n\t${1:name_t} (${2:arguments});\n\tvirtual ~${1:name_t} ();\n};'
-  'Namespace':
-    'prefix': 'ns'
-    'body': 'namespace ${1:name} {\n\t$2\n} /* $1 */'
-  'cout':
-    'prefix': 'cout'
-    'body': 'std::cout << \"${1:/* message */}\" << \'\\\\n\';'
-  'cin':
-    'prefix': 'cin'
-    'body': 'std::cin >> ${1:/* variable */};'
-  'cerr':
-    'prefix': 'cerr'
-    'body': 'std::cerr << \"${1:/* error message */}\" << \'\\\\n\';'
-  'std::map':
-    'prefix': 'map'
-    'body': 'std::map<${1:key}, ${2:value}> map$3;'
-  'std::string':
-    'prefix': 'str'
-    'body': 'std::string'
-  'std::vector':
-    'prefix': 'vector'
-    'body': 'std::vector<${1:int}> v$2;'
-  'template <typename>':
-    'prefix': 'tp'
-    'body': 'template <typename ${1:T}>'
-  'output file':
-    'prefix': 'outf'
-    'body': 'std::ofstream ${1:afile}("${2:filename.txt}", std::ios::out);\nif (${1:afile}.is_open()) {\n\t${1:afile} << "${3:This is a line.}\\\\n";\n\t${1:afile}.close();\n}'
-  'input file':
-    'prefix': 'inf'
-    'body': 'std::ifstream ${1:afile}("${2:filename.txt}", std::ios::in);\nif (${1:afile}.is_open()) {\n\tstd::string line;\n\twhile (std::getline(${1:afile}, line)) {\n\t\tstd::cout << line << \'\\\\n\';\n\t}\n\t${1:afile}.close();\n}\nelse {\n\tstd::cerr << "Unable to open file\\\\n";\n}'
