@@ -5,11 +5,11 @@
   "homepage": "https://mrsolutions.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomw2005/language-ppl.git"
+    "url": "https://github.com/tawilkinson/language-ppl.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tomw2005/language-ppl/issues"
+    "url": "https://github.com/tawilkinson/language-ppl/issues"
   },
   "engines": {
     "atom": "*",
