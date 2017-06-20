@@ -155,6 +155,17 @@ describe "Language-PPL", ->
           expect(tokens[9]).toEqual value: '1', scopes: ['source.ppl', 'meta.preprocessor.macro.ppl', 'constant.numeric.ppl']
           expect(tokens[10]).toEqual value: ')', scopes: ['source.ppl', 'meta.preprocessor.macro.ppl']
 
+        describe "use", ->
+          it "tokenizes '#use [RF] [Wav Ed file] [alias]'", ->
+            {tokens} = grammar.tokenizeLine '#use RF1 "file" pf1'
+            expect(tokens[0]).toEqual value: '#', scopes: ['source.ppl', 'meta.preprocessor.macro.ppl', 'keyword.control.directive.use.ppl', 'punctuation.definition.directive.ppl']
+            expect(tokens[1]).toEqual value: 'use', scopes: ['source.ppl', 'meta.preprocessor.macro.ppl', 'keyword.control.directive.use.ppl']
+            expect(tokens[3]).toEqual value: 'RF1', scopes: ['source.ppl', 'meta.preprocessor.macro.ppl', 'entity.name.function.preprocessor.ppl']
+            expect(tokens[5]).toEqual value: '"', scopes: ['source.ppl', 'meta.preprocessor.use.ppl', 'string.quoted.double.use.ppl', 'punctuation.definition.string.begin.ppl']
+            expect(tokens[6]).toEqual value: 'file', scopes: ['source.ppl', 'meta.preprocessor.use.ppl', 'string.quoted.double.use.ppl']
+            expect(tokens[7]).toEqual value: '"', scopes: ['source.ppl', 'meta.preprocessor.use.ppl', 'string.quoted.double.use.ppl', 'punctuation.definition.string.end.ppl']
+            expect(tokens[9]).toEqual value: 'pf1', scopes: ['source.ppl', 'meta.preprocessor.macro.ppl', 'keyword.control.directive.use.ppl']
+
         describe "macros", ->
           it "tokenizes them", ->
             {tokens} = grammar.tokenizeLine '#define INCREMENT(x) x++'

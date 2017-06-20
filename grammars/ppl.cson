@@ -95,6 +95,37 @@
     ]
   }
   {
+    'begin': '''(?x)
+      ^\\s* ((\\#)\\s*use) \\s+     # use
+      ((?<id>[a-zA-Z_$][\\w$]*))  # RF/GRAD type
+    '''
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.directive.use.ppl'
+      '3':
+        'name': 'entity.name.function.preprocessor.ppl'
+      '4':
+        'name': 'punctuation.definition.directive.ppl'
+    'end': '(?=(?://|/\\*))|(?<!\\\\)(?=\\n)'
+    'name': 'meta.preprocessor.use.ppl'
+    'patterns': [
+      {
+        'include': '#line_continuation_character'
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.ppl'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.ppl'
+        'name': 'string.quoted.double.use.ppl'
+      }
+    ]
+  }
+  {
     'begin': '^\\s*((#)\\s*(error|warning))\\b'
     'captures':
       '1':
